@@ -6,5 +6,5 @@ target 'it-alias' do
   use_frameworks!
 
   # Pods for it-alias
-
+pod 'SwiftGen', '~> 6.0'
 end
