@@ -24,8 +24,8 @@ xcassets:
   outputs:
     - templateName: swift5
       params:
-        enumName: Image
-      output: it-alias/Localization/Generated/Image.swift
+        enumName: Images
+      output: it-alias/Assets/Generated/Images.swift
 
 xcassets:
   inputs:
@@ -34,5 +34,5 @@ xcassets:
   outputs:
     - templateName: swift5
       params:
-        enumName: Color
-      output: it-alias/Localization/Generated/Color.swift
+        enumName: Colors
+      output: it-alias/Assets/Generated/Colors.swift
