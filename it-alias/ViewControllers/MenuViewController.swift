@@ -39,7 +39,7 @@ class MenuViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = Colors.blue.color
-    
+    self.navigationController?.navigationBar.tintColor = Colors.yellow.color;
     addSubviews()
     setupConstraints()
   }
@@ -68,8 +68,7 @@ class MenuViewController: UIViewController {
   @objc
   private func goToTeamsViewController() {
     let vc = TeamsViewController()
-    vc.modalPresentationStyle = .fullScreen
-    present(vc, animated: true)
+    navigationController?.pushViewController(vc, animated: true)
   }
 }
 
