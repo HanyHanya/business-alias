@@ -7,3 +7,6 @@
 */
 
 "Menu.Play" = "Play";
+"Teams.AddTeams" = "Add Teams";
+"TeamView.TeamName" = "Team";
+"AddTeamView.AddTeam" = "Add Team";

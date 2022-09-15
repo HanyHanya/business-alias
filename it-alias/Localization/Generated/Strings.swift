@@ -10,12 +10,24 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum Strings {
+  internal enum AddTeamView {
+    /// Add Team
+    internal static let addTeam = Strings.tr("Localizable", "AddTeamView.AddTeam", fallback: "Add Team")
+  }
   internal enum Menu {
     /// Localization.strings
     ///   it-alias
     /// 
     ///   Created by Yushkevich Ilya on 26.08.22.
     internal static let play = Strings.tr("Localizable", "Menu.Play", fallback: "Play")
+  }
+  internal enum TeamView {
+    /// Team
+    internal static let teamName = Strings.tr("Localizable", "TeamView.TeamName", fallback: "Team")
+  }
+  internal enum Teams {
+    /// Add Teams
+    internal static let addTeams = Strings.tr("Localizable", "Teams.AddTeams", fallback: "Add Teams")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

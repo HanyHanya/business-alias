@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		3A178D9028C1DD380040A89D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A178D8F28C1DD380040A89D /* Colors.swift */; };
 		3A178D9328C1E1B30040A89D /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A178D9228C1E1B30040A89D /* Fonts.swift */; };
+		3A178D9628C1E5000040A89D /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A178D9528C1E5000040A89D /* TeamsViewController.swift */; };
+		3A178D9B28C1F7850040A89D /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A178D9A28C1F7850040A89D /* TeamView.swift */; };
+		3A178D9E28C4D20B0040A89D /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A178D9D28C4D20B0040A89D /* Team.swift */; };
+		3A178DA128C9D1B70040A89D /* TeamViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A178DA028C9D1B70040A89D /* TeamViewDelegate.swift */; };
+		3A178DA328D304370040A89D /* AddTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A178DA228D304370040A89D /* AddTeamView.swift */; };
 		3A78481D28B9113A00AD109D /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3A78481C28B9113A00AD109D /* swiftgen.yml */; };
 		3A78482728B914B500AD109D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A78482928B914B500AD109D /* Localizable.strings */; };
 		3A78482D28B9177600AD109D /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78482C28B9177600AD109D /* Strings.swift */; };
@@ -25,6 +30,11 @@
 		31ABBA3B18CE3618095F16BC /* Pods-it-alias.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-it-alias.release.xcconfig"; path = "Target Support Files/Pods-it-alias/Pods-it-alias.release.xcconfig"; sourceTree = "<group>"; };
 		3A178D8F28C1DD380040A89D /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3A178D9228C1E1B30040A89D /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		3A178D9528C1E5000040A89D /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
+		3A178D9A28C1F7850040A89D /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
+		3A178D9D28C4D20B0040A89D /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		3A178DA028C9D1B70040A89D /* TeamViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewDelegate.swift; sourceTree = "<group>"; };
+		3A178DA228D304370040A89D /* AddTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamView.swift; sourceTree = "<group>"; };
 		3A78481C28B9113A00AD109D /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		3A78481E28B911A400AD109D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A78481F28B911AF00AD109D /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -68,6 +78,40 @@
 				3A178D9228C1E1B30040A89D /* Fonts.swift */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		3A178D9428C1E4CF0040A89D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3AADAB9B28AC05CA0054505C /* MenuViewController.swift */,
+				3A178D9528C1E5000040A89D /* TeamsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3A178D9928C1F5CB0040A89D /* CustomUIElements */ = {
+			isa = PBXGroup;
+			children = (
+				3A178D9A28C1F7850040A89D /* TeamView.swift */,
+				3A178DA228D304370040A89D /* AddTeamView.swift */,
+			);
+			path = CustomUIElements;
+			sourceTree = "<group>";
+		};
+		3A178D9C28C4D1EE0040A89D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A178D9D28C4D20B0040A89D /* Team.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A178D9F28C9D1A60040A89D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3A178DA028C9D1B70040A89D /* TeamViewDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		3A78482428B9147600AD109D /* Localization */ = {
@@ -127,12 +171,15 @@
 		3AADAB9628AC05CA0054505C /* it-alias */ = {
 			isa = PBXGroup;
 			children = (
+				3A178D9F28C9D1A60040A89D /* Protocols */,
+				3A178D9C28C4D1EE0040A89D /* Model */,
+				3A178D9928C1F5CB0040A89D /* CustomUIElements */,
+				3A178D9428C1E4CF0040A89D /* ViewControllers */,
 				3A178D9128C1E1A60040A89D /* Fonts */,
 				3A78483028B917C900AD109D /* Assets */,
 				3A78482428B9147600AD109D /* Localization */,
 				3AADAB9728AC05CA0054505C /* AppDelegate.swift */,
 				3AADAB9928AC05CA0054505C /* SceneDelegate.swift */,
-				3AADAB9B28AC05CA0054505C /* MenuViewController.swift */,
 				3AADABA228AC05CD0054505C /* LaunchScreen.storyboard */,
 				3AADABA528AC05CD0054505C /* Info.plist */,
 			);
@@ -266,11 +313,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A178D9E28C4D20B0040A89D /* Team.swift in Sources */,
 				3AADAB9C28AC05CA0054505C /* MenuViewController.swift in Sources */,
 				3A178D9028C1DD380040A89D /* Colors.swift in Sources */,
 				3AADAB9828AC05CA0054505C /* AppDelegate.swift in Sources */,
+				3A178D9B28C1F7850040A89D /* TeamView.swift in Sources */,
 				3A78482D28B9177600AD109D /* Strings.swift in Sources */,
+				3A178DA328D304370040A89D /* AddTeamView.swift in Sources */,
+				3A178DA128C9D1B70040A89D /* TeamViewDelegate.swift in Sources */,
 				3A178D9328C1E1B30040A89D /* Fonts.swift in Sources */,
+				3A178D9628C1E5000040A89D /* TeamsViewController.swift in Sources */,
 				3AADAB9A28AC05CA0054505C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,9 +26,11 @@ class MenuViewController: UIViewController {
     button.translatesAutoresizingMaskIntoConstraints = false
     button.setTitleColor(Colors.blue.color, for: .normal)
     button.setTitle(Strings.Menu.play, for: .normal)
+    button.titleLabel?.adjustsFontSizeToFitWidth = true
     button.backgroundColor = Colors.yellow.color
     button.layer.cornerRadius = 10
     button.titleLabel?.font = FontsManager.bold(ofSize: 40)
+    button.addTarget(self, action: #selector(goToTeamsViewController), for: .touchUpInside)
     
     return button
   }()
@@ -60,6 +62,14 @@ class MenuViewController: UIViewController {
       startButton.widthAnchor.constraint(equalToConstant: 120),
       startButton.heightAnchor.constraint(equalToConstant: 60),
     ])
+  }
+  
+  // MARK: - Helpers
+  @objc
+  private func goToTeamsViewController() {
+    let vc = TeamsViewController()
+    vc.modalPresentationStyle = .fullScreen
+    present(vc, animated: true)
   }
 }
 

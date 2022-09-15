@@ -7,4 +7,6 @@
 */
 
 "Menu.Play" = "Играть";
-
+"Teams.AddTeams" = "Добавьте Команды";
+"TeamView.TeamName" = "Команда";
+"AddTeamView.AddTeam" = "Добавить команду";
