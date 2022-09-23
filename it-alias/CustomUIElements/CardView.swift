@@ -48,6 +48,13 @@ final class CardView: UIView {
     self.backgroundColor = Colors.yellow.color
     self.layer.cornerRadius = 20
     self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
+    
+    self.layer.shadowColor = UIColor.black.cgColor
+    self.layer.shadowOpacity = 1
+    self.layer.shadowOffset = .zero
+    self.layer.shadowRadius = 10
+    self.layer.shouldRasterize = true
+    self.layer.rasterizationScale = UIScreen.main.scale
   }
   
   private func addSubviews() {
