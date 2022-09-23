@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
     
     stackView.axis = .horizontal
     stackView.distribution = .equalSpacing
-    stackView.spacing = 70
+    stackView.spacing = 50
     
     return stackView
   }()
@@ -54,6 +54,8 @@ class GameViewController: UIViewController {
     let card = CardView()
     card.translatesAutoresizingMaskIntoConstraints = false
     card.backgroundColor = Colors.red.color
+    card.setCorners([.layerMaxXMaxYCorner])
+    card.setShadows(false)
     
     return card
   }()
@@ -62,6 +64,8 @@ class GameViewController: UIViewController {
     let card = CardView()
     card.translatesAutoresizingMaskIntoConstraints = false
     card.backgroundColor = Colors.green.color
+    card.setCorners([.layerMinXMinYCorner])
+    card.setShadows(false)
     
     return card
   }()
@@ -106,11 +110,12 @@ class GameViewController: UIViewController {
   private func setupConstraints() {
     
     NSLayoutConstraint.activate([
-      stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+      stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       
       wrongAnswerCard.heightAnchor.constraint(equalToConstant: view.bounds.height / 2.5),
-      wrongAnswerCard.widthAnchor.constraint(equalToConstant: view.bounds.width / 2),
+      wrongAnswerCard.widthAnchor.constraint(equalToConstant: view.bounds.width / 12),
       
       cardStack.heightAnchor.constraint(equalToConstant: view.bounds.height / 2.5),
       cardStack.widthAnchor.constraint(equalToConstant: view.bounds.width / 2),
@@ -125,7 +130,7 @@ class GameViewController: UIViewController {
       secondBackgroundCard.widthAnchor.constraint(equalToConstant: view.bounds.width / 2),
       
       rightAnswerCard.heightAnchor.constraint(equalToConstant: view.bounds.height / 2.5),
-      rightAnswerCard.widthAnchor.constraint(equalToConstant: view.bounds.width / 2),
+      rightAnswerCard.widthAnchor.constraint(equalToConstant: view.bounds.width / 12),
     ])
   }
   // MARK: - Helpers

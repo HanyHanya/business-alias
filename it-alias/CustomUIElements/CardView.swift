@@ -43,18 +43,35 @@ final class CardView: UIView {
     wordLabel.text = word
   }
   
+  func setCorners(_ maskedCorners: CACornerMask = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]) {
+    self.layer.maskedCorners = maskedCorners
+  }
+  
+  func setShadows(_ needsShadows: Bool) {
+    switch needsShadows {
+    case true:
+      self.layer.shadowColor = UIColor.black.cgColor
+      self.layer.shadowOpacity = 1
+      self.layer.shadowOffset = .zero
+      self.layer.shadowRadius = 10
+      self.layer.shouldRasterize = true
+      self.layer.rasterizationScale = UIScreen.main.scale
+      
+    case false:
+      self.layer.shadowOffset = CGSize(width: 0 , height: 0)
+      self.layer.shadowColor = UIColor.clear.cgColor
+      self.layer.shadowRadius = 0
+      self.layer.shadowOpacity = 0
+    }
+  }
+  
   // MARK: - Setups
   private func setupUI() {
     self.backgroundColor = Colors.yellow.color
     self.layer.cornerRadius = 20
-    self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
     
-    self.layer.shadowColor = UIColor.black.cgColor
-    self.layer.shadowOpacity = 1
-    self.layer.shadowOffset = .zero
-    self.layer.shadowRadius = 10
-    self.layer.shouldRasterize = true
-    self.layer.rasterizationScale = UIScreen.main.scale
+    setCorners()
+    setShadows(true)
   }
   
   private func addSubviews() {
