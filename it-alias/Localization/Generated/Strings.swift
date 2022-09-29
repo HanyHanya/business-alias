@@ -28,6 +28,8 @@ internal enum Strings {
   internal enum Teams {
     /// Add Teams
     internal static let addTeams = Strings.tr("Localizable", "Teams.AddTeams", fallback: "Add Teams")
+    /// Start
+    internal static let startGame = Strings.tr("Localizable", "Teams.StartGame", fallback: "Start")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
