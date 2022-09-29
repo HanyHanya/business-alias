@@ -101,7 +101,6 @@ class TeamView: UIView {
     NSLayoutConstraint.activate([
       teamImageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 10),
       teamImageView.heightAnchor.constraint(equalTo: teamImageView.widthAnchor),
-      
       stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
       stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
       stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),

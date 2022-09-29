@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 class TeamsViewController: UIViewController {
   // MARK: - Outlets
@@ -43,21 +42,6 @@ class TeamsViewController: UIViewController {
   
   private let addTeamView = AddTeamView()
   
-  private let startGameButton: UIButton = {
-    let button = UIButton()
-    button.translatesAutoresizingMaskIntoConstraints = false
-    
-    button.layer.cornerRadius = 10
-    button.backgroundColor = Colors.yellow.color
-    button.setTitleColor(Colors.blue.color, for: .normal)
-    button.addTarget(self, action: #selector(startGame), for: .touchUpInside)
-    button.setTitle(Strings.Teams.startGame, for: .normal)
-    button.titleLabel?.font = FontsManager.bold(ofSize: 40)
-    button.titleLabel?.adjustsFontSizeToFitWidth = true
-    
-    return button
-  }()
-  
   // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -91,7 +75,6 @@ class TeamsViewController: UIViewController {
     view.addSubview(teamsStackView)
     let _ = teams.map { teamsStackView.addArrangedSubview($0) }
     teamsStackView.addArrangedSubview(addTeamView)
-    view.addSubview(startGameButton)
   }
   
   private func setupConstraints() {
@@ -100,24 +83,13 @@ class TeamsViewController: UIViewController {
       teamsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
       teamsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
       teamsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      
       teamsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       teamsStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
       teamsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
       teamsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-      
-      startGameButton.topAnchor.constraint(greaterThanOrEqualTo: teamsStackView.bottomAnchor, constant: 100),
-      startGameButton.widthAnchor.constraint(equalToConstant: 120),
-      startGameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      startGameButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
     ])
   }
   // MARK: - Helpers
-  @objc
-  private func startGame() {
-    let vc = GameViewController()
-    navigationController?.pushViewController(vc, animated: true)
-  }
 }
 
 extension TeamsViewController: TeamViewDelegate {
