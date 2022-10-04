@@ -47,8 +47,8 @@ final class CardView: UIView {
     self.layer.maskedCorners = maskedCorners
   }
   
-  func setShadows(_ needsShadows: Bool) {
-    switch needsShadows {
+  func isShadowEnabled(_ isEnabled: Bool) {
+    switch isEnabled {
     case true:
       self.layer.shadowColor = UIColor.black.cgColor
       self.layer.shadowOpacity = 1
@@ -56,9 +56,8 @@ final class CardView: UIView {
       self.layer.shadowRadius = 10
       self.layer.shouldRasterize = true
       self.layer.rasterizationScale = UIScreen.main.scale
-      
     case false:
-      self.layer.shadowOffset = CGSize(width: 0 , height: 0)
+      self.layer.shadowOffset = .zero
       self.layer.shadowColor = UIColor.clear.cgColor
       self.layer.shadowRadius = 0
       self.layer.shadowOpacity = 0
@@ -71,7 +70,7 @@ final class CardView: UIView {
     self.layer.cornerRadius = 20
     
     setCorners()
-    setShadows(true)
+    isShadowEnabled(true)
   }
   
   private func addSubviews() {

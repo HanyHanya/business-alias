@@ -85,7 +85,7 @@ class GameViewController: UIViewController {
     card.translatesAutoresizingMaskIntoConstraints = false
     card.backgroundColor = Colors.red.color
     card.setCorners([.layerMaxXMaxYCorner])
-    card.setShadows(false)
+    card.isShadowEnabled(false)
     
     return card
   }()
@@ -95,7 +95,7 @@ class GameViewController: UIViewController {
     card.translatesAutoresizingMaskIntoConstraints = false
     card.backgroundColor = Colors.green.color
     card.setCorners([.layerMinXMinYCorner])
-    card.setShadows(false)
+    card.isShadowEnabled(false)
     
     return card
   }()
@@ -147,7 +147,6 @@ class GameViewController: UIViewController {
   }
   
   private func setupConstraints() {
-    
     NSLayoutConstraint.activate([
       stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
       stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -230,7 +229,7 @@ class GameViewController: UIViewController {
   }
   
   private func removeView(_ view: UIView, initialCenter: CGPoint) {
-    UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear) {
+    UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveLinear) {
       view.layer.opacity = 0
     } completion: { [weak self] finished in
       guard let strongSelf = self else { return }
