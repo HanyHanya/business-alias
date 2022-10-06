@@ -11,3 +11,4 @@
 "TeamView.TeamName" = "Team";
 "AddTeamView.AddTeam" = "Add Team";
 "Teams.StartGame" = "Start";
+"Game.TeamTurn" = " turn";
