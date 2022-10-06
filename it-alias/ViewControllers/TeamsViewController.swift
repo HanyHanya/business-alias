@@ -116,6 +116,8 @@ class TeamsViewController: UIViewController {
   @objc
   private func startGame() {
     let vc = GameViewController()
+    let teams = teams.map { $0.team }
+    vc.teams = teams
     navigationController?.pushViewController(vc, animated: true)
   }
 }

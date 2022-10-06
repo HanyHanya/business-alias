@@ -11,10 +11,32 @@ class GameViewController: UIViewController {
   
   // MARK: - Properties
   // MARK: Public
+  var teams = [Team]()
   // MARK: Private
+  private var currentTeam = 0
   private var initialCenter: CGPoint = .zero
   private let panGestureRecognizer = UIPanGestureRecognizer()
   private var questionCards = [CardView]()
+  
+  private let dateComponentsFormatter: DateComponentsFormatter = {
+    let formatter = DateComponentsFormatter()
+    
+    formatter.allowedUnits = .second
+    
+    return formatter
+  }()
+  
+  private let timerCountdownLabel: UILabel = {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    
+    label.font = FontsManager.bold(ofSize: 40)
+    label.adjustsFontSizeToFitWidth = true
+    label.textColor = Colors.yellow.color
+    label.textAlignment = .center
+    
+    return label
+  }()
   
   private let cardStack: UIView = {
     let view = UIView()
@@ -65,7 +87,7 @@ class GameViewController: UIViewController {
     
     return card
   }()
-    
+  
   private let firstBackgroundCard: CardView = {
     let card = CardView()
     card.translatesAutoresizingMaskIntoConstraints = false
@@ -108,6 +130,7 @@ class GameViewController: UIViewController {
     addSubviews()
     setupConstraints()
     basicAnimation()
+    startGamePopup(teamIndex: currentTeam)
   }
   
   // MARK: - API
@@ -120,6 +143,7 @@ class GameViewController: UIViewController {
   }
   
   private func addSubviews() {
+    view.addSubview(timerCountdownLabel)
     view.addSubview(stackView)
     stackView.addArrangedSubview(wrongAnswerCard)
     backgroundCardStack.addSubview(firstBackgroundCard)
@@ -130,7 +154,7 @@ class GameViewController: UIViewController {
     foregroundCardStack.addSubview(firstQuestionCard)
     questionCards.append(firstQuestionCard)
     questionCards.append(secondQuestionCard)
-
+    
     cardStack.addSubview(backgroundCardStack)
     cardStack.addSubview(foregroundCardStack)
     stackView.addArrangedSubview(cardStack)
@@ -148,6 +172,10 @@ class GameViewController: UIViewController {
   
   private func setupConstraints() {
     NSLayoutConstraint.activate([
+      timerCountdownLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      timerCountdownLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+      timerCountdownLabel.bottomAnchor.constraint(greaterThanOrEqualTo: stackView.topAnchor),
+      
       stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
       stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -216,7 +244,7 @@ class GameViewController: UIViewController {
       } else {
         returnView(cardView, initialCenter: initialCenter)
       }
-
+      
     default:
       return
     }
@@ -255,7 +283,7 @@ class GameViewController: UIViewController {
       
       return card
     }()
-        
+    
     return card
   }
   
@@ -269,5 +297,53 @@ class GameViewController: UIViewController {
       card.centerXAnchor.constraint(equalTo: foregroundCardStack.centerXAnchor),
       card.centerYAnchor.constraint(equalTo: foregroundCardStack.centerYAnchor),
     ])
+  }
+  
+  private func startGamePopup(teamIndex: Int) {
+    let switchingTeamsVC = SwitchingTeamsPopupViewController()
+    switchingTeamsVC.setTeam(teams[teamIndex])
+    switchingTeamsVC.modalPresentationStyle = .popover
+    switchingTeamsVC.preferredContentSize = CGSize(width: view.bounds.width / 1.3, height: view.bounds.width / 1.3)
+    switchingTeamsVC.popoverPresentationController?.sourceView = view
+    switchingTeamsVC.popoverPresentationController?.delegate = self
+    switchingTeamsVC.popoverPresentationController?.permittedArrowDirections = []
+    switchingTeamsVC.popoverPresentationController?.sourceRect = CGRect(
+      origin: CGPoint(
+        x: view.bounds.midX,
+        y: view.bounds.midY
+      ),
+      size: .zero
+    )
+    present(switchingTeamsVC, animated: true)
+  }
+}
+
+private func endGame() {
+  
+}
+
+extension GameViewController: UIPopoverPresentationControllerDelegate {
+  func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+    UIDevice.current.userInterfaceIdiom == .pad ? UIModalPresentationStyle.popover : UIModalPresentationStyle.none
+  }
+  
+  func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+    var secondsRemaining = 60
+    let timer = Timer(timeInterval: 1, repeats: true) { [weak self] timer in
+      guard let strongSelf = self else { return }
+      secondsRemaining -= 1
+      strongSelf.timerCountdownLabel.text = String(secondsRemaining)
+      
+      if secondsRemaining == 0 {
+        timer.invalidate()
+        strongSelf.currentTeam += 1
+        if strongSelf.currentTeam < strongSelf.teams.count {
+          strongSelf.startGamePopup(teamIndex: strongSelf.currentTeam)
+        } else {
+          endGame()
+        }
+      }
+    }
+    RunLoop.current.add(timer, forMode: .common)
   }
 }

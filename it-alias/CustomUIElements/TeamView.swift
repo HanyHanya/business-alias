@@ -126,4 +126,8 @@ extension TeamView: UITextFieldDelegate {
     guard let text = textField.text else { return false }
     return text.count + string.count <= 15
   }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+  }
 }

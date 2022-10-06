@@ -11,3 +11,4 @@
 "TeamView.TeamName" = "Команда";
 "AddTeamView.AddTeam" = "Добавить команду";
 "Teams.StartGame" = "Начать";
+"Game.TeamTurn" = " ход";
