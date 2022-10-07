@@ -25,6 +25,18 @@ internal enum Strings {
     ///   Created by Yushkevich Ilya on 26.08.22.
     internal static let play = Strings.tr("Localizable", "Menu.Play", fallback: "Play")
   }
+  internal enum Stats {
+    /// Game Stats
+    internal static let gameStats = Strings.tr("Localizable", "Stats.GameStats", fallback: "Game Stats")
+    /// To Menu
+    internal static let toMenu = Strings.tr("Localizable", "Stats.ToMenu", fallback: "To Menu")
+  }
+  internal enum TeamStats {
+    /// Right answers: 
+    internal static let rightAnswers = Strings.tr("Localizable", "TeamStats.RightAnswers", fallback: "Right answers: ")
+    /// Wrong answers: 
+    internal static let wrongAnswers = Strings.tr("Localizable", "TeamStats.WrongAnswers", fallback: "Wrong answers: ")
+  }
   internal enum TeamView {
     /// Team
     internal static let teamName = Strings.tr("Localizable", "TeamView.TeamName", fallback: "Team")

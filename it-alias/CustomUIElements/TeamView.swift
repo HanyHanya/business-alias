@@ -17,7 +17,7 @@ class TeamView: UIView {
     static let deleteImage = UIImage(systemName: "trash")
   }
   
-  var team = Team(image: UIImage(), name: Strings.TeamView.teamName)
+  var team = Team(name: Strings.TeamView.teamName)
   
   private let stackView: UIStackView = {
     let stackView = UIStackView()
@@ -28,14 +28,6 @@ class TeamView: UIView {
     stackView.distribution = .equalSpacing
     
     return stackView
-  }()
-  
-  private let teamImageView: UIImageView = {
-    let imageView = UIImageView()
-    
-    imageView.backgroundColor = .red
-    
-    return imageView
   }()
   
   private let teamNameTextField: UITextField = {
@@ -71,7 +63,6 @@ class TeamView: UIView {
   
   // MARK: - API
   func setTeam(_ team: Team) {
-    teamImageView.image = team.image
     teamNameTextField.text = team.name
   }
   
@@ -92,16 +83,12 @@ class TeamView: UIView {
   
   private func addSubviews() {
     self.addSubview(stackView)
-    stackView.addArrangedSubview(teamImageView)
     stackView.addArrangedSubview(teamNameTextField)
     stackView.addArrangedSubview(deleteButton)
   }
   
   private func setupConstraints() {
     NSLayoutConstraint.activate([
-      teamImageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 10),
-      teamImageView.heightAnchor.constraint(equalTo: teamImageView.widthAnchor),
-      
       stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
       stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
       stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),

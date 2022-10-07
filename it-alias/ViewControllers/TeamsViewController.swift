@@ -109,7 +109,7 @@ class TeamsViewController: UIViewController {
       startGameButton.topAnchor.constraint(greaterThanOrEqualTo: teamsStackView.bottomAnchor, constant: 100),
       startGameButton.widthAnchor.constraint(equalToConstant: 120),
       startGameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      startGameButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
+      startGameButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
     ])
   }
   // MARK: - Helpers

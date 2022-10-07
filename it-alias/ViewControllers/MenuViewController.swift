@@ -59,7 +59,7 @@ class MenuViewController: UIViewController {
       
       startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       startButton.topAnchor.constraint(greaterThanOrEqualTo: logoImageView.bottomAnchor, constant: 50),
-      startButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+      startButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
       startButton.widthAnchor.constraint(equalToConstant: 120),
       startButton.heightAnchor.constraint(equalToConstant: 60),
     ])
