@@ -50,7 +50,9 @@ class SwitchingTeamsPopupViewController: UIViewController {
   private func setupConstraints() {
     NSLayoutConstraint.activate([
       teamNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      teamNameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+      teamNameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+      teamNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+      teamNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
     ])
   }
 }

@@ -316,10 +316,12 @@ class GameViewController: UIViewController {
     )
     present(switchingTeamsVC, animated: true)
   }
-}
-
-private func endGame() {
   
+  private func endGame() {
+    let statsViewController = StatsViewController()
+    statsViewController.teams = teams
+    navigationController?.pushViewController(statsViewController, animated: true)
+  }
 }
 
 extension GameViewController: UIPopoverPresentationControllerDelegate {
@@ -340,7 +342,7 @@ extension GameViewController: UIPopoverPresentationControllerDelegate {
         if strongSelf.currentTeam < strongSelf.teams.count {
           strongSelf.startGamePopup(teamIndex: strongSelf.currentTeam)
         } else {
-          endGame()
+          strongSelf.endGame()
         }
       }
     }
