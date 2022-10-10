@@ -23,6 +23,9 @@
 		3A7D8E4028EEAE0A00F2235C /* SwitchingTeamsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D8E3F28EEAE0A00F2235C /* SwitchingTeamsPopupViewController.swift */; };
 		3A7D8E4228EED62D00F2235C /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D8E4128EED62D00F2235C /* StatsViewController.swift */; };
 		3A7D8E4428F0021900F2235C /* TeamStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D8E4328F0021900F2235C /* TeamStatsView.swift */; };
+		3A7D8E5428F4B2E800F2235C /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D8E5328F4B2E800F2235C /* Question.swift */; };
+		3A7D8E5728F4B42100F2235C /* QuestionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D8E5628F4B42100F2235C /* QuestionsRepository.swift */; };
+		3A7D8E5928F4B54100F2235C /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D8E5828F4B54100F2235C /* RealmRepository.swift */; };
 		3AADAB9828AC05CA0054505C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AADAB9728AC05CA0054505C /* AppDelegate.swift */; };
 		3AADAB9A28AC05CA0054505C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AADAB9928AC05CA0054505C /* SceneDelegate.swift */; };
 		3AADAB9C28AC05CA0054505C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AADAB9B28AC05CA0054505C /* MenuViewController.swift */; };
@@ -52,6 +55,9 @@
 		3A7D8E3F28EEAE0A00F2235C /* SwitchingTeamsPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchingTeamsPopupViewController.swift; sourceTree = "<group>"; };
 		3A7D8E4128EED62D00F2235C /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		3A7D8E4328F0021900F2235C /* TeamStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStatsView.swift; sourceTree = "<group>"; };
+		3A7D8E5328F4B2E800F2235C /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		3A7D8E5628F4B42100F2235C /* QuestionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsRepository.swift; sourceTree = "<group>"; };
+		3A7D8E5828F4B54100F2235C /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		3AADAB9428AC05CA0054505C /* it-alias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "it-alias.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AADAB9728AC05CA0054505C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AADAB9928AC05CA0054505C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				3A178D9D28C4D20B0040A89D /* Team.swift */,
+				3A7D8E5328F4B2E800F2235C /* Question.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +171,15 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
+		3A7D8E5528F4B39900F2235C /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				3A7D8E5628F4B42100F2235C /* QuestionsRepository.swift */,
+				3A7D8E5828F4B54100F2235C /* RealmRepository.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		3AADAB8B28AC05CA0054505C = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +202,7 @@
 		3AADAB9628AC05CA0054505C /* it-alias */ = {
 			isa = PBXGroup;
 			children = (
+				3A7D8E5528F4B39900F2235C /* Realm */,
 				3A178D9F28C9D1A60040A89D /* Protocols */,
 				3A178D9C28C4D1EE0040A89D /* Model */,
 				3A178D9928C1F5CB0040A89D /* CustomUIElements */,
@@ -349,6 +366,7 @@
 				3A178D9E28C4D20B0040A89D /* Team.swift in Sources */,
 				3AADAB9C28AC05CA0054505C /* MenuViewController.swift in Sources */,
 				3A178D9028C1DD380040A89D /* Colors.swift in Sources */,
+				3A7D8E5428F4B2E800F2235C /* Question.swift in Sources */,
 				3A7D8E4028EEAE0A00F2235C /* SwitchingTeamsPopupViewController.swift in Sources */,
 				3AADAB9828AC05CA0054505C /* AppDelegate.swift in Sources */,
 				3A178DB428D6032C0040A89D /* GameViewController.swift in Sources */,
@@ -358,10 +376,12 @@
 				3A178DA128C9D1B70040A89D /* TeamViewDelegate.swift in Sources */,
 				3A178D9328C1E1B30040A89D /* Fonts.swift in Sources */,
 				3A178D9628C1E5000040A89D /* TeamsViewController.swift in Sources */,
+				3A7D8E5928F4B54100F2235C /* RealmRepository.swift in Sources */,
 				3A178DB228D5FFC40040A89D /* CardView.swift in Sources */,
 				3A7D8E4228EED62D00F2235C /* StatsViewController.swift in Sources */,
 				3AADAB9A28AC05CA0054505C /* SceneDelegate.swift in Sources */,
 				3A7D8E4428F0021900F2235C /* TeamStatsView.swift in Sources */,
+				3A7D8E5728F4B42100F2235C /* QuestionsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
