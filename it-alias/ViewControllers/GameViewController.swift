@@ -13,9 +13,16 @@ class GameViewController: UIViewController {
   // MARK: Public
   var teams = [Team]()
   // MARK: Private
+  private enum Constants {
+    static let ruLocale = "ru"
+    static let enLocale = "en"
+  }
   private var currentTeam = 0
   private var initialCenter: CGPoint = .zero
   private let panGestureRecognizer = UIPanGestureRecognizer()
+  
+  private let questionsRepository: QuestionsRepository = RealmRepository.instance
+  private var questionsStrings: [String]!
   private var questionCards = [CardView]()
   
   private let dateComponentsFormatter: DateComponentsFormatter = {
@@ -73,18 +80,14 @@ class GameViewController: UIViewController {
   private let firstQuestionCard: CardView = {
     let card = CardView()
     card.translatesAutoresizingMaskIntoConstraints = false
-    
-    card.setWord("qwerty")
-    
+        
     return card
   }()
   
   private let secondQuestionCard: CardView = {
     let card = CardView()
     card.translatesAutoresizingMaskIntoConstraints = false
-    
-    card.setWord("qwerty")
-    
+        
     return card
   }()
   
@@ -127,6 +130,7 @@ class GameViewController: UIViewController {
     super.viewDidLoad()
     
     setupUI()
+    setupQuestions()
     addSubviews()
     setupConstraints()
     basicAnimation()
@@ -140,6 +144,34 @@ class GameViewController: UIViewController {
     panGestureRecognizer.addTarget(self, action: #selector(dragCard))
     secondQuestionCard.addGestureRecognizer(panGestureRecognizer)
     firstQuestionCard.addGestureRecognizer(panGestureRecognizer)
+  }
+  
+  private func setupQuestions() {
+    guard
+      let languageCode = Locale.current.languageCode
+    else {
+      questionsStrings = questionsRepository.getAll().map { $0.englishString }
+      
+      guard !questionsStrings.isEmpty else { return }
+      firstQuestionCard.setWord(questionsStrings.removeFirst())
+      secondQuestionCard.setWord(questionsStrings.removeFirst())
+      
+      return
+    }
+    
+    switch languageCode.lowercased() {
+    case Constants.enLocale:
+      questionsStrings = questionsRepository.getAllEnglish().shuffled()
+    case Constants.ruLocale:
+      questionsStrings = questionsRepository.getAllRussian().shuffled()
+    default:
+      return
+    }
+    
+    guard !questionsStrings.isEmpty else { return }
+    
+    firstQuestionCard.setWord(questionsStrings.removeFirst())
+    secondQuestionCard.setWord(questionsStrings.removeFirst())
   }
   
   private func addSubviews() {
@@ -238,7 +270,12 @@ class GameViewController: UIViewController {
       initialCenter = .zero
       
     case .ended:
-      if cardView.center.x <= -50 || cardView.center.x >= 180 {
+      if cardView.center.x <= -50 {
+        teams[currentTeam].wrongAnswers += 1
+        removeView(cardView, initialCenter: initialCenter)
+        initialCenter = .zero
+      } else if cardView.center.x >= 180 {
+        teams[currentTeam].rightAnswers += 1
         removeView(cardView, initialCenter: initialCenter)
         initialCenter = .zero
       } else {
@@ -262,7 +299,13 @@ class GameViewController: UIViewController {
     } completion: { [weak self] finished in
       guard let strongSelf = self else { return }
       if finished {
-        let card = strongSelf.makeCardWithText("qwerty")
+        guard !strongSelf.questionsStrings.isEmpty
+        else {
+          strongSelf.endGame()
+          return
+        }
+        
+        let card = strongSelf.makeCardWithText(strongSelf.questionsStrings.removeFirst())
         strongSelf.addCard(card)
         let cardToPan = strongSelf.questionCards.count - 2
         strongSelf.questionCards[cardToPan].addGestureRecognizer(strongSelf.panGestureRecognizer)
@@ -339,7 +382,12 @@ extension GameViewController: UIPopoverPresentationControllerDelegate {
       if secondsRemaining == 0 {
         timer.invalidate()
         strongSelf.currentTeam += 1
-        if strongSelf.currentTeam < strongSelf.teams.count {
+        
+        if strongSelf.teams.count == strongSelf.currentTeam {
+          strongSelf.currentTeam = 0
+        }
+        
+        if !strongSelf.questionsStrings.isEmpty {
           strongSelf.startGamePopup(teamIndex: strongSelf.currentTeam)
         } else {
           strongSelf.endGame()

@@ -14,4 +14,6 @@ protocol QuestionsRepository {
   func update(_ question: Question)
   func getAll() -> [Question]
   func getQuestion(id: ObjectId) -> Question?
+  func getAllRussian() -> [String]
+  func getAllEnglish() -> [String]
 }

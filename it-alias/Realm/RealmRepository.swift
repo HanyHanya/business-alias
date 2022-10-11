@@ -10,7 +10,7 @@ import RealmSwift
 
 final class RealmRepository: QuestionsRepository {
   
-  let instance = RealmRepository()
+  static let instance = RealmRepository()
   private var realm: Realm!
   
   private init() {
@@ -63,5 +63,18 @@ final class RealmRepository: QuestionsRepository {
   
   func getAll() -> [Question] {
     return Array(realm.objects(Question.self))
+  }
+  
+  func getAllRussian() -> [String] {
+    let questions = Array(realm.objects(Question.self))
+    let russianStrings = questions.map { $0.russianString }
+    return russianStrings
+  }
+  
+  
+  func getAllEnglish() -> [String] {
+    let questions = Array(realm.objects(Question.self))
+    let englishStrings = questions.map { $0.englishString }
+    return englishStrings
   }
 }
