@@ -11,11 +11,24 @@ import RealmSwift
 final class RealmRepository: QuestionsRepository {
   
   static let instance = RealmRepository()
+  
   private var realm: Realm!
+  private var realmConfig: Realm.Configuration!
+  private enum Constants {
+    static let databaseResourceName = "default"
+    static let databaseResourceExtension = "realm"
+  }
   
   private init() {
+    realmConfig = Realm.Configuration(
+      fileURL: Bundle.main.url(
+        forResource: Constants.databaseResourceName,
+        withExtension: Constants.databaseResourceExtension
+      ),
+      readOnly: true
+    )
     do {
-      realm = try Realm()
+      realm = try Realm(configuration: realmConfig, queue: DispatchQueue.main)
       
     } catch(let error) {
       print("Error - \(error)")
