@@ -14,12 +14,28 @@ internal enum Strings {
     /// Add Team
     internal static let addTeam = Strings.tr("Localizable", "AddTeamView.AddTeam", fallback: "Add Team")
   }
+  internal enum Game {
+    ///  turn
+    internal static let teamTurn = Strings.tr("Localizable", "Game.TeamTurn", fallback: " turn")
+  }
   internal enum Menu {
     /// Localization.strings
     ///   it-alias
     /// 
     ///   Created by Yushkevich Ilya on 26.08.22.
     internal static let play = Strings.tr("Localizable", "Menu.Play", fallback: "Play")
+  }
+  internal enum Stats {
+    /// Game Stats
+    internal static let gameStats = Strings.tr("Localizable", "Stats.GameStats", fallback: "Game Stats")
+    /// To Menu
+    internal static let toMenu = Strings.tr("Localizable", "Stats.ToMenu", fallback: "To Menu")
+  }
+  internal enum TeamStats {
+    /// Right answers: 
+    internal static let rightAnswers = Strings.tr("Localizable", "TeamStats.RightAnswers", fallback: "Right answers: ")
+    /// Wrong answers: 
+    internal static let wrongAnswers = Strings.tr("Localizable", "TeamStats.WrongAnswers", fallback: "Wrong answers: ")
   }
   internal enum TeamView {
     /// Team
