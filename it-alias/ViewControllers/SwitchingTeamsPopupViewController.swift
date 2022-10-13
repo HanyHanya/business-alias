@@ -24,7 +24,7 @@ class SwitchingTeamsPopupViewController: UIViewController {
     
     return label
   }()
-  
+  // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     

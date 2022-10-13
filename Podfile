@@ -7,4 +7,5 @@ target 'it-alias' do
 
   # Pods for it-alias
 pod 'SwiftGen', '~> 6.0'
+pod 'RealmSwift', '~>10'
 end

@@ -17,6 +17,10 @@ final class CardView: UIView {
     
     label.textColor = Colors.blue.color
     label.adjustsFontSizeToFitWidth = true
+    label.textAlignment = .center
+    label.font = FontsManager.bold(ofSize: 20)
+    label.lineBreakMode = .byWordWrapping
+    label.numberOfLines = 0
     
     return label
   }()
@@ -81,6 +85,8 @@ final class CardView: UIView {
     NSLayoutConstraint.activate([
       wordLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
       wordLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+      wordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+      wordLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
     ])
   }
   // MARK: - Helpers
