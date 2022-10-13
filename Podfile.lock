@@ -1,0 +1,26 @@
+PODS:
+  - Realm (10.31.0):
+    - Realm/Headers (= 10.31.0)
+  - Realm/Headers (10.31.0)
+  - RealmSwift (10.31.0):
+    - Realm (= 10.31.0)
+  - SwiftGen (6.6.2)
+
+DEPENDENCIES:
+  - RealmSwift (~> 10)
+  - SwiftGen (~> 6.0)
+
+SPEC REPOS:
+  trunk:
+    - Realm
+    - RealmSwift
+    - SwiftGen
+
+SPEC CHECKSUMS:
+  Realm: 10df7d86e1ca09d9948fdce2faa3fc623fb092c6
+  RealmSwift: aecc52389574be4d451bf6cb1b08824eaa17dad0
+  SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
+
+PODFILE CHECKSUM: 61656d0dd7c7da6de643cec7471fb09488b2dd5d
+
+COCOAPODS: 1.11.2

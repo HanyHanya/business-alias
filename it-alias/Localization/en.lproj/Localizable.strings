@@ -1,0 +1,18 @@
+/* 
+  Localization.strings
+  it-alias
+
+  Created by Yushkevich Ilya on 26.08.22.
+  
+*/
+
+"Menu.Play" = "Play";
+"Teams.AddTeams" = "Add Teams";
+"TeamView.TeamName" = "Team";
+"AddTeamView.AddTeam" = "Add Team";
+"Teams.StartGame" = "Start";
+"Game.TeamTurn" = " turn";
+"TeamStats.WrongAnswers" = "Wrong answers: ";
+"TeamStats.RightAnswers" = "Right answers: ";
+"Stats.GameStats" = "Game Stats";
+"Stats.ToMenu" = "To Menu";
