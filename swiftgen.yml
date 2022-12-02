@@ -9,30 +9,30 @@
 #   SwiftGen will parse all `.strings` files found in that folder.
 strings:
   inputs:
-    - it-alias/Localization/en.lproj
+    - business-alias/Localization/en.lproj
 
   outputs:
     - templateName: structured-swift5
       params:
         enumName: Strings
-      output: it-alias/Localization/Generated/Strings.swift
+      output: business-alias/Localization/Generated/Strings.swift
 
 xcassets:
   inputs:
-    - it-alias/Assets/ImageAssets.xcassets
+    - business-alias/Assets/ImageAssets.xcassets
 
   outputs:
     - templateName: swift5
       params:
         enumName: Images
-      output: it-alias/Assets/Generated/Images.swift
+      output: business-alias/Assets/Generated/Images.swift
 
 xcassets:
   inputs:
-    - it-alias/Assets/ColorAssets.xcassets
+    - business-alias/Assets/ColorAssets.xcassets
 
   outputs:
     - templateName: swift5
       params:
         enumName: Colors
-      output: it-alias/Assets/Generated/Colors.swift
+      output: business-alias/Assets/Generated/Colors.swift

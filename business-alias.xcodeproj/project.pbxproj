@@ -62,7 +62,7 @@
 		3A7D8E5828F4B54100F2235C /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		3A7D8E5F28F7EE2800F2235C /* default.realm.lock */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm.lock; sourceTree = "<group>"; };
 		3A7D8E6028F7EE2800F2235C /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
-		3AADAB9428AC05CA0054505C /* it-alias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "it-alias.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AADAB9428AC05CA0054505C /* business-alias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "business-alias.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AADAB9728AC05CA0054505C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AADAB9928AC05CA0054505C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3AADAB9B28AC05CA0054505C /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				3A78481C28B9113A00AD109D /* swiftgen.yml */,
-				3AADAB9628AC05CA0054505C /* it-alias */,
+				3AADAB9628AC05CA0054505C /* business-alias */,
 				3AADAB9528AC05CA0054505C /* Products */,
 				E8EACB23EA65834902AA8F7F /* Pods */,
 				234EDDB286D25690FE4F89C7 /* Frameworks */,
@@ -208,12 +208,12 @@
 		3AADAB9528AC05CA0054505C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3AADAB9428AC05CA0054505C /* it-alias.app */,
+				3AADAB9428AC05CA0054505C /* business-alias.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3AADAB9628AC05CA0054505C /* it-alias */ = {
+		3AADAB9628AC05CA0054505C /* business-alias */ = {
 			isa = PBXGroup;
 			children = (
 				3A7D8E5528F4B39900F2235C /* Realm */,
@@ -229,7 +229,7 @@
 				3AADABA228AC05CD0054505C /* LaunchScreen.storyboard */,
 				3AADABA528AC05CD0054505C /* Info.plist */,
 			);
-			path = "it-alias";
+			path = "business-alias";
 			sourceTree = "<group>";
 		};
 		E8EACB23EA65834902AA8F7F /* Pods */ = {
@@ -244,9 +244,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3AADAB9328AC05CA0054505C /* it-alias */ = {
+		3AADAB9328AC05CA0054505C /* business-alias */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3AADABA828AC05CD0054505C /* Build configuration list for PBXNativeTarget "it-alias" */;
+			buildConfigurationList = 3AADABA828AC05CD0054505C /* Build configuration list for PBXNativeTarget "business-alias" */;
 			buildPhases = (
 				08EE5D9655F4D0C3C71014E4 /* [CP] Check Pods Manifest.lock */,
 				3A78482328B9124B00AD109D /* SwiftGen */,
@@ -259,9 +259,9 @@
 			);
 			dependencies = (
 			);
-			name = "it-alias";
+			name = "business-alias";
 			productName = "it-alias";
-			productReference = 3AADAB9428AC05CA0054505C /* it-alias.app */;
+			productReference = 3AADAB9428AC05CA0054505C /* business-alias.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -279,7 +279,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3AADAB8F28AC05CA0054505C /* Build configuration list for PBXProject "it-alias" */;
+			buildConfigurationList = 3AADAB8F28AC05CA0054505C /* Build configuration list for PBXProject "business-alias" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -292,7 +292,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3AADAB9328AC05CA0054505C /* it-alias */,
+				3AADAB9328AC05CA0054505C /* business-alias */,
 			);
 		};
 /* End PBXProject section */
@@ -477,7 +477,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -533,7 +533,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -553,7 +553,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M46WL2C5J3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "it-alias/Info.plist";
+				INFOPLIST_FILE = "business-alias/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "business-alias";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -564,7 +565,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Elijah.it-alias";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Elijah.business-alias";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -582,7 +583,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M46WL2C5J3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "it-alias/Info.plist";
+				INFOPLIST_FILE = "business-alias/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "business-alias";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -593,7 +595,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Elijah.it-alias";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Elijah.business-alias";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -604,7 +606,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3AADAB8F28AC05CA0054505C /* Build configuration list for PBXProject "it-alias" */ = {
+		3AADAB8F28AC05CA0054505C /* Build configuration list for PBXProject "business-alias" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3AADABA628AC05CD0054505C /* Debug */,
@@ -613,7 +615,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3AADABA828AC05CD0054505C /* Build configuration list for PBXNativeTarget "it-alias" */ = {
+		3AADABA828AC05CD0054505C /* Build configuration list for PBXNativeTarget "business-alias" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3AADABA928AC05CD0054505C /* Debug */,
