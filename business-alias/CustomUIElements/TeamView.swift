@@ -18,6 +18,11 @@ class TeamView: UIView {
   }
   
   var team = Team(name: Strings.TeamView.teamName)
+  var isEnoughTeams = false {
+    didSet {
+      deleteButton.isHidden = !isEnoughTeams
+    }
+  }
   
   private let stackView: UIStackView = {
     let stackView = UIStackView()

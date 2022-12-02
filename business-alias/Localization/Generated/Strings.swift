@@ -15,6 +15,8 @@ internal enum Strings {
     internal static let addTeam = Strings.tr("Localizable", "AddTeamView.AddTeam", fallback: "Add Team")
   }
   internal enum Game {
+    /// Finish
+    internal static let finish = Strings.tr("Localizable", "Game.Finish", fallback: "Finish")
     ///  turn
     internal static let teamTurn = Strings.tr("Localizable", "Game.TeamTurn", fallback: " turn")
   }

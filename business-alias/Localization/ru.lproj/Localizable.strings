@@ -12,6 +12,7 @@
 "AddTeamView.AddTeam" = "Добавить команду";
 "Teams.StartGame" = "Начать";
 "Game.TeamTurn" = " ход";
+"Game.Finish" = "Закончить";
 "TeamStats.WrongAnswers" = "Неверных ответов: ";
 "TeamStats.RightAnswers" = "Верных ответов: ";
 "Stats.GameStats" = "Статистика";
