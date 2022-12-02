@@ -64,6 +64,7 @@ class StatsViewController: UIViewController {
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
+    self.navigationItem.setHidesBackButton(true, animated: true)
     for team in teams {
       addTeamStats(team: team)
     }
@@ -72,7 +73,6 @@ class StatsViewController: UIViewController {
   // MARK: - Setups
   private func setupUI() {
     view.backgroundColor = Colors.blue.color
-    navigationController?.navigationItem.setHidesBackButton(true, animated: true)
   }
   
   private func addSubviews() {

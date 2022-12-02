@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class GameViewController: UIViewController {
   
@@ -125,6 +126,21 @@ class GameViewController: UIViewController {
     return card
   }()
   
+  private let endGameButton: UIButton = {
+    let button = UIButton()
+    
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.setTitleColor(Colors.blue.color, for: .normal)
+    button.setTitle(Strings.Game.finish, for: .normal)
+    button.titleLabel?.adjustsFontSizeToFitWidth = true
+    button.backgroundColor = Colors.yellow.color
+    button.layer.cornerRadius = 10
+    button.titleLabel?.font = FontsManager.bold(ofSize: 40)
+    button.addTarget(self, action: #selector(endGame), for: .touchUpInside)
+    
+    return button
+  }()
+  
   // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -192,6 +208,8 @@ class GameViewController: UIViewController {
     stackView.addArrangedSubview(cardStack)
     stackView.addArrangedSubview(rightAnswerCard)
     stackView.bringSubviewToFront(cardStack)
+    
+    view.addSubview(endGameButton)
   }
   
   private func basicAnimation() {
@@ -250,6 +268,12 @@ class GameViewController: UIViewController {
       
       rightAnswerCard.heightAnchor.constraint(equalToConstant: view.bounds.height / 2.5),
       rightAnswerCard.widthAnchor.constraint(equalToConstant: view.bounds.width / 12),
+      
+      endGameButton.topAnchor.constraint(greaterThanOrEqualTo: stackView.bottomAnchor, constant: 40),
+      endGameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      endGameButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+      endGameButton.widthAnchor.constraint(equalToConstant: 120),
+      endGameButton.heightAnchor.constraint(equalToConstant: 60),
     ])
   }
   // MARK: - Helpers
@@ -360,6 +384,7 @@ class GameViewController: UIViewController {
     present(switchingTeamsVC, animated: true)
   }
   
+  @objc
   private func endGame() {
     let statsViewController = StatsViewController()
     statsViewController.teams = teams

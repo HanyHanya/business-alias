@@ -14,6 +14,7 @@ class TeamsViewController: UIViewController {
   // MARK: Public
   // MARK: Private
   private var teams = [TeamView(), TeamView()]
+  private var isEnoughTeams = false
   
   private let teamsLabel: UILabel = {
     let label = UILabel()
@@ -61,7 +62,10 @@ class TeamsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = Colors.blue.color
-    let _ = teams.map { $0.delegate  = self }
+    let _ = teams.map { teamView in
+      teamView.delegate  = self
+      teamView.isEnoughTeams = isEnoughTeams
+    }
     
     setupCompletions()
     addSubviews()
@@ -71,17 +75,23 @@ class TeamsViewController: UIViewController {
   // MARK: - API
   // MARK: - Setups
   private func setupCompletions() {
-    addTeamView.addTeam = {
+    addTeamView.addTeam = { [weak self] in
+      guard let strongSelf = self else { return }
       let teamView = TeamView()
       teamView.delegate = self
       
-      self.teams.append(teamView)
-      self.teamsStackView.removeArrangedSubview(self.addTeamView)
-      self.teamsStackView.addArrangedSubview(teamView)
-      self.teamsStackView.addArrangedSubview(self.addTeamView)
-      if self.teams.count == 4 {
-        self.teamsStackView.removeArrangedSubview(self.addTeamView)
-        self.addTeamView.removeFromSuperview()
+      strongSelf.teams.append(teamView)
+      strongSelf.teamsStackView.removeArrangedSubview(strongSelf.addTeamView)
+      strongSelf.teamsStackView.addArrangedSubview(teamView)
+      strongSelf.teamsStackView.addArrangedSubview(strongSelf.addTeamView)
+      if strongSelf.teams.count == 4 {
+        strongSelf.teamsStackView.removeArrangedSubview(strongSelf.addTeamView)
+        strongSelf.addTeamView.removeFromSuperview()
+      }
+      
+      if strongSelf.teams.count > 2 {
+        strongSelf.isEnoughTeams = true
+        let _ = strongSelf.teams.map { $0.isEnoughTeams = strongSelf.isEnoughTeams }
       }
     }
   }
@@ -130,6 +140,11 @@ extension TeamsViewController: TeamViewDelegate {
 
     if teams.count < 4 && !addTeamView.isDescendant(of: teamsStackView) {
       teamsStackView.addArrangedSubview(addTeamView)
+    }
+    
+    if teams.count <= 2 {
+      isEnoughTeams = false
+      let _ = teams.map { $0.isEnoughTeams = isEnoughTeams }
     }
   }
 }
